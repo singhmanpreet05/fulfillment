@@ -1,10 +1,10 @@
 # from __future__ import absolute_import, unicode_literals
 # print("chakde tasks")
-# from celery import shared_task
+from celery import shared_task
 # from django.conf import settings
 # from kitchen.models import *
 # import json
-# from kitchen.usecases import service
+from kitchen.usecases import service
 # import random
 # import redis_lock
 #
@@ -48,11 +48,11 @@
 #             return True
 #         return service.ForcePlace(order, Shelf.ANY, Shelf.capacity(Shelf.ANY))
 #
-# @shared_task
-# def organizers_generator(count):
-#     print("organizer generator started")
-#     for i in range(count):
-#         organizer.delay()
+@shared_task
+def organizers_generator(count):
+    print("organizer generator started")
+    # for i in range(count):
+    #     organizer.delay()
 #
 #
 # # @celery_app.on_after_configure.connect
