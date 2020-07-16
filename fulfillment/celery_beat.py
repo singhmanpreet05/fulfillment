@@ -22,13 +22,14 @@ from datetime import timedelta
 # }
 
 # print("about to schedule a load orders job")
-# load_orders.delay()
-
 @celery_app.on_after_configure.connect
 def organizers_generate_task(sender, **kwargs):
     print("inside organizers_generate_task")
-    task_count = 1
-    sender.add_periodic_task(1, organizers_generator.s(task_count), name="generate_orders")
+
+    load_orders.delay()
+    sender.add_periodic_task(1, organizers_generator.s(1), name="generate_orders")
+
+
 
 # @celery_app.on_after_configure.connect
 # def setup_periodic_tasks(sender, **kwargs):

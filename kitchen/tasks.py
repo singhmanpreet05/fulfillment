@@ -1,22 +1,23 @@
 # from __future__ import absolute_import, unicode_literals
 # print("chakde tasks")
 from celery import shared_task
-# from django.conf import settings
+from django.conf import settings
 # from kitchen.models import *
-# import json
+import json
 from kitchen.usecases import service
 # import random
 # import redis_lock
 #
 #
-# @shared_task
-# def load_orders(filename=settings.ORDERS_FILE):
-#     print("load_orders")
-#     with open(filename, "r") as file:
-#         content = file.read()
-#         orders = json.loads(content)
-#         service.DestroyKitchen()()
-#         service.LoadOrders()(orders[:1])
+@shared_task
+def load_orders(filename=settings.ORDERS_FILE):
+#def load_orders(filename=settings.ORDERS_FILE):
+    print("load_orders")
+    # with open(filename, "r") as file:
+    #     content = file.read()
+    #     orders = json.loads(content)
+    #     service.DestroyKitchen()()
+    #     service.LoadOrders()(orders[:1])
 #
 # @shared_task
 # def deliver(order_id):
